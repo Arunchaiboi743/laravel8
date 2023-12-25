@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateYOLOTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateYOLOTable extends Migration
      */
     public function up()
     {
-        Schema::create('YOLO', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
-            $table->integer('NB')->nullable();
-            $table->float('Height')->nullable();
-            $table->string('Cognomen')->nullable();
-            $table->date('Bird day')->nullable();
-            $table->text('Introduce yourself')->nullable();
+            $table->string('title')->nullable();
+        $table->text('content')->nullable();
+        $table->float('price')->nullable();
+        $table->string('photo')->nullable();
+        $table->integer('stock')->nullable();
         });
     }
 
@@ -32,6 +32,6 @@ class CreateYOLOTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('YOLO');
+        Schema::dropIfExists('products');
     }
 }
